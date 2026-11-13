@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 
@@ -41,12 +40,18 @@ public class DealershipFileManager {
                 dealership.addVehicle(vehicle);
 
 
+
+
             }
 
-
+            return dealership;
 
         } catch (Exception e) {
             System.out.println("File error. Please check file and try again.");
+            return null;
         }
+
+
     }
+    public void saveDealership() {}
 }
