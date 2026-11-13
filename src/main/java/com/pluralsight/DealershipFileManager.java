@@ -43,7 +43,7 @@ public class DealershipFileManager {
 
 
             }
-
+            reader.close();
             return dealership;
 
         } catch (Exception e) {
