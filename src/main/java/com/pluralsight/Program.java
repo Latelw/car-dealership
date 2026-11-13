@@ -1,4 +1,4 @@
 package com.pluralsight;
 
-public class SalesFloor {
+public class Program {
 }
