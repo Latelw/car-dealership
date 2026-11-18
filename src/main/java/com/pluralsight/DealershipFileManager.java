@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 
@@ -59,5 +60,9 @@ public class DealershipFileManager {
         return vehicle;
     }
 
-    public void saveDealership() {}
+    public void saveDealership(Dealership dealership) {
+        File file = new File("fileName");
+
+
+    }
 }

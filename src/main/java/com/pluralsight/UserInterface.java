@@ -74,8 +74,6 @@ public class UserInterface {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getPrice().compareTo(input) == 0) {
                 System.out.println(vehicle);
-            } else {
-                System.out.println("No Vehicles Found.");
             }
         }
     }
@@ -103,6 +101,7 @@ public class UserInterface {
 
         List<Vehicle> vehicles = dealership.getAllVehicles();
         int input = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Vehicles: ");
         try {
         for (Vehicle vehicle : vehicles) {
@@ -133,6 +132,7 @@ public class UserInterface {
 
         List<Vehicle> vehicles = dealership.getAllVehicles();
         int input = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Vehicles: ");
 
         for (Vehicle vehicle : vehicles) {
@@ -164,5 +164,27 @@ public class UserInterface {
     private void processGetByAllVehicleRequest(){
         displayVehicles(dealership.getAllVehicles());
     }
-    private void processAddVehicleRequest(){}
-    private void processRemoveVehicleRequest(){}}
+    private void processAddVehicleRequest(){
+        System.out.println("Enter Vehicle (Vin, Year, Make, Model, Car type, Color, Odometer, Price): ");
+        dealership.addVehicle(getVehicle(scanner.nextLine()));
+    }
+    private void processRemoveVehicleRequest(){
+        System.out.println("Enter Vehicle (Vin, Year, Make, Model, Car type, Color, Odometer, Price): ");
+        dealership.removeVehicle(getVehicle(scanner.nextLine()));
+    }
+    private static Vehicle getVehicle(String line) {
+        String[] inventory = line.split("\\|");
+        int vin = Integer.parseInt(inventory[0]);
+        int year = Integer.parseInt(inventory[1]);
+        String make = inventory[2];
+        String model = inventory[3];
+        String carType = inventory[4];
+        String color = inventory[5];
+        int odometer = Integer.parseInt(inventory[6]);
+        BigDecimal price = new BigDecimal(inventory[7]);
+
+        Vehicle vehicle = new Vehicle(vin,year,make,model,carType,color,odometer,price);
+        return vehicle;
+    }
+}
+
