@@ -39,7 +39,8 @@ public class Dealership {
         this.phone = phone;
     }
     public void addVehicle(Vehicle vehicle) {
-      inventory.add(vehicle);
+
+        inventory.add(vehicle);
     }
     public List<Vehicle> getAllVehicles() {
         return inventory;

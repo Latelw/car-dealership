@@ -25,17 +25,7 @@ public class DealershipFileManager {
 
 
             while ((line = reader.readLine()) != null) {
-                String[] inventory = line.split("\\|");
-                int vin = Integer.parseInt(inventory[0]);
-                int year = Integer.parseInt(inventory[1]);
-                String make = inventory[2];
-                String model = inventory[3];
-                String carType = inventory[4];
-                String color = inventory[5];
-                int odometer = Integer.parseInt(inventory[6]);
-                BigDecimal price = new BigDecimal(inventory[7]);
-
-                Vehicle vehicle = new Vehicle(vin,year,make,model,carType,color,odometer,price);
+                Vehicle vehicle = getVehicle(line);
 
                 dealership.addVehicle(vehicle);
 
@@ -53,5 +43,21 @@ public class DealershipFileManager {
 
 
     }
+
+    private static Vehicle getVehicle(String line) {
+        String[] inventory = line.split("\\|");
+        int vin = Integer.parseInt(inventory[0]);
+        int year = Integer.parseInt(inventory[1]);
+        String make = inventory[2];
+        String model = inventory[3];
+        String carType = inventory[4];
+        String color = inventory[5];
+        int odometer = Integer.parseInt(inventory[6]);
+        BigDecimal price = new BigDecimal(inventory[7]);
+
+        Vehicle vehicle = new Vehicle(vin,year,make,model,carType,color,odometer,price);
+        return vehicle;
+    }
+
     public void saveDealership() {}
 }

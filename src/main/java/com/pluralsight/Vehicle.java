@@ -87,4 +87,17 @@ public class Vehicle {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle| " +
+                "Vin:" + vin +
+                "| Year:" + year +
+                "| Make:" + make +
+                "| Model:" + model +
+                "| Vehicle Type:" + vehicleType +
+                "| Color:" + color +
+                "| Odometer:" + odometer +
+                "| Price:" + price;
+    }
 }
