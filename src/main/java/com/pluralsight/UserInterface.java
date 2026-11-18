@@ -45,7 +45,7 @@ public class UserInterface {
             }
 
         } catch (Exception e) {
-            System.out.println("An error has occured. Try again.");
+            System.out.println("An error has occurred. Try again.");
         }
     }
     private void init(){
